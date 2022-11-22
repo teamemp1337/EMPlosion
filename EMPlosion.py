@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 import streamlit as st
-from st_aggrid import AgGrid, GridOptionsBuilder, JsCode
+from st_aggrid import AgGrid, GridOptionsBuilder
 
 # Make the default width setting span the entire screen
 st.set_page_config(layout="wide")
@@ -31,7 +31,7 @@ unit_df = pd.read_csv('risk_assessment.csv')
 # AgGrid(unit_df)
 
 gb = GridOptionsBuilder.from_dataframe(unit_df)
-gb.configure_default_column(editable=False)
+gb.configure_default_column(editable=True)
 
 gb.configure_column('Risk Impact',
     cellEditor='agRichSelectCellEditor',
