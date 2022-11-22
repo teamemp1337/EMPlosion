@@ -31,7 +31,7 @@ unit_df = pd.read_csv('risk_assessment.csv')
 # AgGrid(unit_df)
 
 gb = GridOptionsBuilder.from_dataframe(unit_df)
-gb.configure_default_column(editable=True)
+gb.configure_default_column(editable=False)
 
 gb.configure_column('Risk Impact',
     cellEditor='agRichSelectCellEditor',
