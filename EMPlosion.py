@@ -13,15 +13,16 @@ from st_vizzu import *
 
 # Make the default width setting span the entire screen
 st.set_page_config(layout="wide")
-st.title('EMPlosion Risk Assessment Tool')
+st.title('EMPlosion Planning Tool')
 random_url = "https://assets.phenompeople.com/CareerConnectResources/prod/HONEUS/images/1920-568-coding-blog-1616781712070.png"
 st.image(random_url, use_column_width="always")
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 st.markdown("""
-The purpose of this app is to identify/assess risk for the EMPlosion wargaming scenario.
-""")
+The purpose of this tool is to help understand the impact of an EMP event on Joint Base McGuire.
+\nHow will an EMP event affect these United States Air Force units and their contributions to Joint Base McGuire?
+\nYou may write into the cells listed in the Impact column, then right click the table to export as an Excel file.""")
 
 scale = ['',
          'Very High',
@@ -40,15 +41,15 @@ gb.configure_default_column(groupable=True,
                             aggFunc='sum',
                             editable=True)
 
-gb.configure_column('Risk Impact',
-                    cellEditor='agRichSelectCellEditor',
-                    cellEditorParams={'values':scale},
-                    cellEditorPopup=True)
+# gb.configure_column('Risk Impact',
+#                     cellEditor='agRichSelectCellEditor',
+#                     cellEditorParams={'values':scale},
+#                     cellEditorPopup=True)
 
-gb.configure_column('Risk Likelihood',
-                    cellEditor='agRichSelectCellEditor',
-                    cellEditorParams={'values':scale},
-                    cellEditorPopup=True)
+# gb.configure_column('Risk Likelihood',
+#                     cellEditor='agRichSelectCellEditor',
+#                     cellEditorParams={'values':scale},
+#                     cellEditorPopup=True)
 
 gb.configure_grid_options(enableRangeSelection=True)
 
@@ -62,4 +63,4 @@ response = AgGrid(unit_df,
                   data_return_mode = DataReturnMode.AS_INPUT,
                   update_mode = GridUpdateMode.MODEL_CHANGED)
 
-st.dataframe(unit_df)    # confirm changes to df
+# st.dataframe(unit_df)    # confirm changes to df
